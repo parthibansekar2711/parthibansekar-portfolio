@@ -11,6 +11,33 @@
 
 <style>
 
+/* Initial Avatar */
+.avatar{
+width:160px;
+height:160px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:52px;
+font-weight:700;
+letter-spacing:2px;
+color:white;
+background:linear-gradient(135deg,#00e0ff,#c9a227);
+box-shadow:
+0 0 20px #00e0ff,
+0 0 40px rgba(0,224,255,0.6),
+0 0 60px rgba(201,162,39,0.4);
+margin-bottom:25px;
+animation:glowPulse 3s infinite ease-in-out;
+}
+
+/* Subtle Glow Animation */
+@keyframes glowPulse{
+0%{box-shadow:0 0 20px #00e0ff;}
+50%{box-shadow:0 0 40px #c9a227;}
+100%{box-shadow:0 0 20px #00e0ff;}
+}
 :root{
 --bg:#0f172a;
 --glass:rgba(255,255,255,0.06);
@@ -184,7 +211,7 @@ footer{text-align:center;padding:40px;background:#020617;color:var(--muted);}
 </nav>
 
 <section class="hero">
-<img src="profile.jpg" alt="Parthiban Sekar">
+<div class="avatar">PS</div>
 <h1>FinTech & Compliance Leader</h1>
 <p>Senior Business Analyst & Assistant Project Manager with 12+ years delivering AML, KYC, Regulatory & Conversational Banking Platforms across BFSI and Government ecosystems.</p>
 <a href="Parthiban_Resume.pdf" class="btn" target="_blank">View Resume</a>
