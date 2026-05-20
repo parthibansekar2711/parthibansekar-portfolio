@@ -49,6 +49,24 @@ animation:glowPulse 3s infinite ease-in-out;
 
 *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
 
+<script>
+const form = document.querySelector("form");
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+  fetch(form.action, {
+    method: form.method,
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  }).then(response => {
+    if (response.ok) {
+      alert("Message sent successfully!");
+      form.reset();
+    } else {
+      alert("Oops! Something went wrong.");
+    }
+  });
+});
+</script>
 body{
 font-family:'Inter',sans-serif;
 background:radial-gradient(circle at top left,#1e293b,#0f172a);
@@ -280,12 +298,19 @@ Facilitated monthly client reviews and weekly Agile ceremonies planning, reviews
 <section class="section" id="contact">
 <h2 class="section-title">Contact</h2>
 <div class="card">
-<form>
-<input type="text" placeholder="Your Name">
-<input type="email" placeholder="Your Email">
-<textarea rows="4" placeholder="Your Message"></textarea>
-<button class="btn">Send Message</button>
+
+<form action="https://formspree.io/f/mbdbggrl" method="POST">
+
+<input type="text" name="name" placeholder="Your Name" required>
+
+<input type="email" name="email" placeholder="Your Email" required>
+
+<textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+
+<button type="submit" class="btn">Send Message</button>
+
 </form>
+
 </div>
 </section>
 
