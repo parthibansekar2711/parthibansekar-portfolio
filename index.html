@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parthiban S | Senior Business Analyst</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --primary:#0B1F3A;
+  --secondary:#132E57;
+  --accent:#C9A227;
+  --text:#ffffff;
+}
+
+body.light{
+  --primary:#ffffff;
+  --secondary:#f4f4f4;
+  --text:#0B1F3A;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Montserrat',sans-serif;
+  background:var(--primary);
+  color:var(--text);
+  transition:0.4s ease;
+}
+
+/* NAVBAR */
+
+nav{
+  position:fixed;
+  width:100%;
+  top:0;
+  padding:18px 8%;
+  background:rgba(11,31,58,0.95);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1000;
+}
+
+nav a{
+  color:var(--text);
+  text-decoration:none;
+  margin-left:20px;
+  font-size:14px;
+  transition:0.3s;
+}
+
+nav a:hover{color:var(--accent);}
+
+.toggle{
+  border:1px solid var(--accent);
+  padding:6px 12px;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:12px;
+}
+
+/* HERO */
+
+.hero{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:linear-gradient(135deg,#0B1F3A,#132E57);
+  padding:20px;
+}
+
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:54px;
+}
+
+.typing{
+  color:var(--accent);
+  font-weight:600;
+  margin-top:10px;
+  height:30px;
+}
+
+/* BUTTON */
+
+.btn{
+  display:inline-block;
+  margin-top:25px;
+  padding:12px 28px;
+  background:var(--accent);
+  color:var(--primary);
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.btn:hover{background:#fff;}
+
+/* SECTIONS */
+
+.section{
+  padding:100px 10%;
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.8s;
+}
+
+.section.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.section h2{
+  font-family:'Playfair Display',serif;
+  color:var(--accent);
+  margin-bottom:40px;
+}
+
+/* CARDS */
+
+.card{
+  background:var(--secondary);
+  padding:30px;
+  border-radius:15px;
+  margin-bottom:25px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.card:hover{transform:translateY(-6px);}
+
+/* SKILLS */
+
+.skill{margin-bottom:20px;}
+.progress{
+  background:#ccc;
+  height:8px;
+  border-radius:5px;
+  overflow:hidden;
+}
+.progress-bar{
+  height:8px;
+  width:0;
+  background:var(--accent);
+  transition:1.5s ease;
+}
+
+/* STATS */
+
+.stats{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+.stat{
+  flex:1 1 200px;
+  text-align:center;
+  margin-bottom:30px;
+}
+.stat h3{
+  font-size:36px;
+  color:var(--accent);
+}
+
+/* MODAL */
+
+.modal{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.7);
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+.modal-content{
+  background:#fff;
+  color:#000;
+  padding:40px;
+  width:80%;
+  max-width:600px;
+  border-radius:12px;
+}
+.close{
+  float:right;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* FOOTER */
+
+footer{
+  text-align:center;
+  padding:30px;
+  background:var(--secondary);
+}
+
+@media(max-width:768px){
+  .hero h1{font-size:34px;}
+  .stats{flex-direction:column;}
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div><strong>Parthiban S</strong></div>
+  <div>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+    <span class="toggle" onclick="toggleMode()">Toggle</span>
+  </div>
+</nav>
+
+<section class="hero">
+  <div>
+    <h1>Parthiban S</h1>
+    <div class="typing" id="typing"></div>
+    <a href="Parthiban_Resume.pdf" class="btn" download>Download Resume</a>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <h2>About Me</h2>
+  <p>Senior Business Analyst with 12+ years delivering regulatory, BFSI and digital transformation programs across Government and FinTech ecosystems.</p>
+</section>
+
+<section class="section" id="projects">
+  <h2>Featured Projects</h2>
+
+  <div class="card" onclick="openModal('ekyc')">
+    <h3>eKYC Regulatory Platform</h3>
+    <p>Click to view case study</p>
+  </div>
+
+  <div class="card" onclick="openModal('whatsapp')">
+    <h3>WhatsApp Banking Automation</h3>
+    <p>Click to view case study</p>
+  </div>
+
+</section>
+
+<section class="section" id="skills">
+  <h2>Core Skills</h2>
+
+  <div class="skill">
+    <p>Business Analysis</p>
+    <div class="progress"><div class="progress-bar" data-width="95%"></div></div>
+  </div>
+
+  <div class="skill">
+    <p>Agile Delivery</p>
+    <div class="progress"><div class="progress-bar" data-width="90%"></div></div>
+  </div>
+
+  <div class="skill">
+    <p>Regulatory Compliance</p>
+    <div class="progress"><div class="progress-bar" data-width="88%"></div></div>
+  </div>
+
+</section>
+
+<section class="section">
+  <h2>Career Snapshot</h2>
+  <div class="stats">
+    <div class="stat"><h3 class="counter" data-target="12">0</h3><p>Years Experience</p></div>
+    <div class="stat"><h3 class="counter" data-target="15">0</h3><p>Projects Delivered</p></div>
+    <div class="stat"><h3 class="counter" data-target="100">0</h3><p>UAT Success %</p></div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <h2>Contact</h2>
+  <p>Email: Parthibansekar23@gmail.com</p>
+  <p>Phone: 9677257600</p>
+  <p>Location: Chennai, India</p>
+</section>
+
+<footer>
+© 2026 Parthiban S | Senior Business Analyst
+</footer>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">X</span>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+
+/* LIGHT MODE */
+function toggleMode(){
+  document.body.classList.toggle("light");
+}
+
+/* SCROLL REVEAL */
+const sections=document.querySelectorAll(".section");
+window.addEventListener("scroll",()=>{
+  sections.forEach(sec=>{
+    if(sec.getBoundingClientRect().top < window.innerHeight/1.3){
+      sec.classList.add("show");
+    }
+  });
+});
+
+/* TYPING EFFECT */
+const roles=["Senior Business Analyst","Agile Delivery Leader","Regulatory Transformation Specialist"];
+let i=0,j=0,current="",isDeleting=false;
+function type(){
+  current=roles[i];
+  if(!isDeleting){
+    document.getElementById("typing").textContent=current.slice(0,++j);
+    if(j===current.length){isDeleting=true;setTimeout(type,1000);return;}
+  }else{
+    document.getElementById("typing").textContent=current.slice(0,--j);
+    if(j===0){isDeleting=false;i=(i+1)%roles.length;}
+  }
+  setTimeout(type,100);
+}
+type();
+
+/* SKILL ANIMATION */
+const bars=document.querySelectorAll(".progress-bar");
+window.addEventListener("scroll",()=>{
+  bars.forEach(bar=>{
+    if(bar.getBoundingClientRect().top < window.innerHeight){
+      bar.style.width=bar.getAttribute("data-width");
+    }
+  });
+});
+
+/* COUNTER */
+const counters=document.querySelectorAll(".counter");
+window.addEventListener("scroll",()=>{
+  counters.forEach(counter=>{
+    const update=()=>{
+      const target=+counter.getAttribute("data-target");
+      const count=+counter.innerText;
+      const inc=target/100;
+      if(count<target){
+        counter.innerText=Math.ceil(count+inc);
+        setTimeout(update,20);
+      }else{
+        counter.innerText=target;
+      }
+    };
+    if(counter.getBoundingClientRect().top < window.innerHeight){
+      update();
+    }
+  });
+});
+
+/* MODAL */
+function openModal(type){
+  const content={
+    ekyc:"<h3>eKYC Regulatory Platform</h3><p>Designed AML workflows, risk categorisation models, and regulatory-compliant onboarding journeys. Led full UAT sign-off.</p>",
+    whatsapp:"<h3>WhatsApp Banking Automation</h3><p>Built instalment and deposit renewal journeys with OTP authentication, consent capture and audit logging.</p>"
+  };
+  document.getElementById("modal-body").innerHTML=content[type];
+  document.getElementById("modal").style.display="flex";
+}
+function closeModal(){
+  document.getElementById("modal").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
