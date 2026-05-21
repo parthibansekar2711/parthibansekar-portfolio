@@ -478,12 +478,23 @@ and Enterprise Digital Transformation.
 
 <div class="hero-buttons">
 
-<button class="resume-btn" onclick="openResume()">
-View Resume
-<iframe
-src="./Parthiban_Sekar_Resume.pdf#toolbar=0&navpanes=0&scrollbar=0">
-</iframe>
+ <button class="resume-btn" onclick="openResume()">
+  View Resume
 </button>
+
+<iframe
+  src="./Parthiban_Sekar_Resume.pdf#toolbar=0&navpanes=0&scrollbar=0"
+  width="100%"
+  height="600px"
+  style="border:none;">
+</iframe>
+
+<script>
+  function openResume() {
+    window.open('./Parthiban_Sekar_Resume.pdf', '_blank');
+  }
+</script>
+
 
 <a href="#contact" class="contact-btn">
 Let's Connect
